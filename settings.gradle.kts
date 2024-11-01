@@ -19,6 +19,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "IR-Media"
+rootProject.name = "Harmony"
 include(":app")
  

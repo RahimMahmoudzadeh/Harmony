@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace = "ir.media.rahim"
+    namespace = "com.rahim.harmony"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "ir.media.rahim"
+        applicationId = "com.rahim.harmony"
         minSdk = 26
         targetSdk = 34
         versionCode = 1
@@ -28,11 +28,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "11"
     }
     buildFeatures {
         compose = true
