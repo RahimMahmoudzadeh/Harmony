@@ -1,4 +1,4 @@
-package com.rahim.harmony.ui.theme
+package com.rahim.harmony.designsystem.theme
 
 import androidx.compose.ui.graphics.Color
 
