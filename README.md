@@ -37,10 +37,8 @@ Hi! Harmony an Android application for streaming music from YouTube Music the us
 - **🔔 Notifications:** Control music from notification
 - **🌗 Dark/Light Mode:** Toggle between dark and light themes
 
-## :iphone: Screenshots (Dark and Light Theme)
-<table style="width:100%">
-<img src = "asset/home_dark.png" width=240/>
-</table>
+## :iphone: Screenshots
+<img src = "asset/design_app.png" />
 <br>
 
 ## 🤝 Contribution
