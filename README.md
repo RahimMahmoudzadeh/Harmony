@@ -6,7 +6,7 @@
 </div>
 <br>
 
-![Static Badge](https://img.shields.io/badge/License-GPL--3.0-brightgreen)
+![Static Badge](https://img.shields.io/badge/License-Apache--2.0%20license-brightgreen)
 [![Contributions Highly Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/RahimMahmoudzadeh/Harmony/issues)
 <a href="https://android-arsenal.com/api?level=26"><img alt="API" src="https://img.shields.io/badge/API-26%2B-brightgreen.svg?style=flat"/></a>
 <img alt="Static Badge" src="https://img.shields.io/badge/GitHub-RahimMahmoudzadeh-%60Z%60?logo=github&color=blue&link=https%3A%2F%2Fgithub.com%2FRahimMahmoudzadeh">
