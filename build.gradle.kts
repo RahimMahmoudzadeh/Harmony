@@ -3,7 +3,8 @@ plugins {
     libs.plugins.run{
         alias(android.application) apply false
         alias(kotlin.android) apply false
-        alias(kotlin.compose) apply false
         alias(ksp) apply false
+        alias(kotlin.compose) apply false
+        alias(hilt.plugin) apply false
     }
 }

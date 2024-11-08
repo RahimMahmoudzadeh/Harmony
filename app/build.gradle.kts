@@ -1,16 +1,20 @@
 plugins {
-    libs.plugins.run{
+    libs.plugins.run {
         alias(android.application)
         alias(kotlin.android)
-        alias(kotlin.compose)
         alias(ksp)
+        alias(kotlin.compose)
+        alias(hilt.plugin)
     }
 }
 
 android {
     namespace = "com.rahim.harmony"
     compileSdk = 35
-
+    buildFeatures {
+        compose = true
+        buildConfig = true
+    }
     defaultConfig {
         applicationId = "com.rahim.harmony"
         minSdk = 26
@@ -37,16 +41,12 @@ android {
     kotlinOptions {
         jvmTarget = "11"
     }
-    buildFeatures {
-        compose = true
-    }
+
 }
 
 dependencies {
-    libs.run{
+    libs.run {
         implementation(androidx.core.ktx)
-        implementation(platform(androidx.compose.bom))
-        implementation(bundles.compose)
 
         testImplementation(junit)
         androidTestImplementation(androidx.junit)
@@ -55,7 +55,8 @@ dependencies {
         androidTestImplementation(androidx.ui.test.junit4)
         debugImplementation(androidx.ui.tooling)
         debugImplementation(androidx.ui.test.manifest)
-
+        implementation(platform(androidx.compose.bom))
+        implementation(bundles.compose)
         //hilt
         implementation(bundles.hilt)
         ksp(hilt.compiler)
