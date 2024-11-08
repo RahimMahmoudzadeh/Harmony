@@ -3,6 +3,7 @@ package com.rahim.harmony.core.base
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.StateFlow
@@ -50,7 +51,7 @@ inline fun <reified BASE_EVENT, BASE_EFFECT, BASE_STATE> useBase(
     )
 }
 
-interface UnidirectionalViewModel<EVENT, STATE> {
+interface UnidirectionalViewModel<EVENT, STATE>{
     val state: StateFlow<STATE>
     fun event(event: EVENT)
 }

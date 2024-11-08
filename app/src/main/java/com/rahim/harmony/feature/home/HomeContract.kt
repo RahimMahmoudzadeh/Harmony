@@ -1,6 +1,8 @@
 package com.rahim.harmony.feature.home
 
 import com.rahim.harmony.core.base.UnidirectionalViewModel
+import com.rahim.harmony.domain.offlineMusic.MusicCategory
+import com.rahim.harmony.domain.offlineMusic.model.OfflineMusic
 
 interface HomeContract: UnidirectionalViewModel<HomeContract.HomeEvent, HomeContract.HomeState> {
     sealed class HomeEvent() {
@@ -9,7 +11,9 @@ interface HomeContract: UnidirectionalViewModel<HomeContract.HomeEvent, HomeCont
 
     data class HomeState(
         val loading: Boolean = true,
-        val data: String = "",
+        val categoryName: List<String> = emptyList(),
+        val offlineMusic: List<OfflineMusic> = emptyList(),
+        val onlineMusic: List<OfflineMusic> = emptyList(),
         val error: String = ""
     )
 }
