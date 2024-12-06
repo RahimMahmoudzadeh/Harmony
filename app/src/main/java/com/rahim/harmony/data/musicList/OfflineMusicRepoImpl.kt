@@ -7,18 +7,26 @@ import android.provider.MediaStore
 import com.rahim.harmony.domain.offlineMusic.MusicCategory
 import com.rahim.harmony.domain.offlineMusic.OfflineMusicRepo
 import com.rahim.harmony.domain.offlineMusic.model.OfflineMusic
+import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
 class OfflineMusicRepoImpl @Inject constructor(
     private val context: Context,
     private val coroutineScope: CoroutineScope = CoroutineScope(
         Dispatchers.IO
-    )
-) :
-    OfflineMusicRepo {
+    ),
+) : OfflineMusicRepo {
+
+    val audioFiles = ArrayList<OfflineMusic>()
+    val remoteMusic = ArrayList<OfflineMusic>()
+
+    override fun getMusic(): Flow<List<OfflineMusic>> =
+        flow { emit(if (remoteMusic.isEmpty) audioFiles else remoteMusic) }
 
     override suspend fun getOfflineCategory() =
         listOf(
@@ -31,9 +39,8 @@ class OfflineMusicRepoImpl @Inject constructor(
             MusicCategory.SLEEP
         )
 
-    override suspend fun getOfflineMusic(): List<OfflineMusic> {
+    override suspend fun refreshMusic(): List<OfflineMusic> {
         return coroutineScope.async {
-            val audioFiles = mutableListOf<OfflineMusic>()
             val contentResolver = context.contentResolver
             val uri = MediaStore.Audio.Media.EXTERNAL_CONTENT_URI
             val projection = arrayOf(

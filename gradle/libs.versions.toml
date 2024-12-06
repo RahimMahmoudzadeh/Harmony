@@ -1,14 +1,14 @@
 [versions]
 agp = "8.7.2"
-kotlin = "2.0.21"
+kotlin = "2.1.0-RC2"
 coreKtx = "1.15.0"
 junit = "4.13.2"
 junitVersion = "1.2.1"
 espressoCore = "3.6.1"
 lifecycleRuntimeKtx = "2.8.7"
 activityCompose = "1.9.3"
-composeBom = "2024.10.01"
-ksp = "2.0.21-1.0.26"
+composeBom = "2024.11.00"
+ksp = "2.0.21-1.0.27"
 
 #hilt
 hilt = "2.52"
@@ -18,9 +18,11 @@ hilt_navigation_compose = "1.2.0"
 androidx-room = "2.6.1"
 
 #navigation
-nav-version = '2.8.3'
+nav-version = '2.8.4'
 
 androidxCoreSplashscreen = "1.0.1"
+
+coil = "3.0.3"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -55,6 +57,9 @@ room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "
 #splash
 androidx-core-splashscreen = { group = "androidx.core", name = "core-splashscreen", version.ref = "androidxCoreSplashscreen" }
 
+#coil
+coil-compose = { group = "io.coil-kt.coil3", name = "coil-compose", version.ref = "coil" }
+coil-newtwork = { group = "io.coil-kt.coil3", name = "coil-network-okhttp", version.ref = "coil" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
@@ -70,3 +75,4 @@ compose = ["androidx-ui-tooling-preview",
     "lifecycle-viewmodel-compose", "androidx-navigation"]
 room = ["room-runtime", "room-ktx"]
 hilt = ["hilt-android", "hilt-navigation-compose"]
+coil = ["coil-compose", "coil-newtwork"]

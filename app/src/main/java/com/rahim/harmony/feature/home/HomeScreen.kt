@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -13,6 +14,9 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyHorizontalGrid
+import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -30,6 +34,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.rahim.harmony.R
 import com.rahim.harmony.core.base.use
 import com.rahim.harmony.designsystem.component.MusicCategory
+import com.rahim.harmony.designsystem.component.MusicItems
 import com.rahim.harmony.designsystem.theme.HarmonyTheme
 
 @Composable
@@ -78,18 +83,30 @@ private fun HomeScreen(modifier: Modifier = Modifier, state: HomeContract.HomeSt
                 contentDescription = "empty list home"
             )
         }
-        LazyColumn {
+        LazyColumn(
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(300.dp)
+        ) {
             item {
-                LazyRow {
+                LazyRow(
+                    modifier = Modifier.padding(top = 12.dp),
+                    horizontalArrangement = Arrangement.spacedBy(12.dp)
+                ) {
                     items(state.categoryName) {
                         MusicCategory(name = it, onClick = {})
                     }
                 }
             }
             item {
-                LazyRow {
+                LazyHorizontalGrid(
+                    rows = GridCells.Fixed(2),
+                    modifier = Modifier
+                        .padding(top = 12.dp)
+                        .height(200.dp)
+                ) {
                     items(state.offlineMusic) {
-
+                        MusicItems(name = it.name, imageUrl = it.image.toString(), onClick = {})
                     }
                 }
             }

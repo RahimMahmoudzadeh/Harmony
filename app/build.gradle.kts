@@ -40,8 +40,13 @@ android {
     }
     kotlinOptions {
         jvmTarget = "11"
-    }
 
+    }
+    kotlin {
+        compilerOptions {
+            extraWarnings.set(true)
+        }
+    }
 }
 
 dependencies {
@@ -60,5 +65,8 @@ dependencies {
         //hilt
         implementation(bundles.hilt)
         ksp(hilt.compiler)
+
+        //coil
+        implementation(bundles.coil)
     }
 }

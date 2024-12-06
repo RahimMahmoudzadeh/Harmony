@@ -1,5 +1,6 @@
 package com.rahim.harmony.feature.home
 
+import androidx.compose.material3.rememberTopAppBarState
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.rahim.harmony.domain.offlineMusic.MusicCategory
@@ -9,6 +10,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
@@ -42,9 +44,10 @@ class HomeViewModel @Inject constructor(private val offlineMusicRepo: OfflineMus
 
     private fun getAllMusic() {
         viewModelScope.launch {
-            val music = offlineMusicRepo.getOfflineMusic()
-            mutableState.update {
-                it.copy(offlineMusic = music)
+            offlineMusicRepo.getMusic().catch {}.collect { music ->
+                mutableState.update {
+                    it.copy(offlineMusic = music)
+                }
             }
         }
     }
