@@ -35,7 +35,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             val (state, event) = use(viewModel)
             LaunchedEffect(true) {
-                event.invoke(MainContract.MainEvent.RefreshMusic)
+//                event.invoke(MainContract.MainEvent.RefreshMusic)
             }
             val navController = rememberNavController()
             val navBackStackEntry by navController.currentBackStackEntryAsState()
