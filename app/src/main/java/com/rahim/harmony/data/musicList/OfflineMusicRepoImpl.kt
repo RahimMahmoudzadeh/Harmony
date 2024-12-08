@@ -26,7 +26,7 @@ class OfflineMusicRepoImpl @Inject constructor(
     val remoteMusic = ArrayList<OfflineMusic>()
 
     override fun getMusic(): Flow<List<OfflineMusic>> =
-        flow { emit(if (remoteMusic.isEmpty) audioFiles else remoteMusic) }
+        flow { emit(if (remoteMusic.isEmpty()) audioFiles else remoteMusic) }
 
     override suspend fun getOfflineCategory() =
         listOf(
