@@ -1,5 +1,5 @@
 plugins {
-    libs.plugins.run {
+    this.libs.plugins.run {
         alias(android.application)
         alias(kotlin.android)
         alias(ksp)
@@ -18,6 +18,7 @@ android {
     defaultConfig {
         applicationId = "com.rahim.harmony"
         minSdk = 26
+        //noinspection EditedTargetSdkVersion
         targetSdk = 35
         versionCode = 1
         versionName = "1.0.0"

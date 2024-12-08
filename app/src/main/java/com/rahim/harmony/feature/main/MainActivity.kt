@@ -13,12 +13,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.rahim.harmony.core.base.use
 import com.rahim.harmony.designsystem.theme.HarmonyTheme
-import com.rahim.harmony.feature.home.HomeScreenRoute
 import com.rahim.harmony.navigation.Destinations
 import com.rahim.harmony.navigation.component.BottomNavigationBar
 import com.rahim.harmony.navigation.component.NavigationComponent
